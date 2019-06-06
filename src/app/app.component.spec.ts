@@ -12,24 +12,26 @@ describe('AppComponent', () => {
         AppComponent
       ],
     }).compileComponents();
+    TestBed.configureTestingModule({
+      declarations: [AppComponent],
+    }).createComponent(AppComponent);
+
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
+  it('El titulo debe ser Bienvenido a Ingenieria de Software ', async(()=>{
+    const title=document.getElementById('title').innerHTML;
+    expect(title).toContain('Bienvenido a Ingenieria de Software');
 
-  it(`should have as title 'angular'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('angular');
-  });
+  }));
 
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular!');
-  });
+  it('El tag del titulo debe ser H1',async(()=>{
+    const tag=document.getElementById('title').tagName;
+    expect(tag).toBe('H1');
+  }));
+
+  it('El tag del link debe ser', async(()=>{
+    const tag=document.getElementById('link').firstChild['tagName'];
+    expect(tag).toBe('B')
+  }));
+
 });
