@@ -6,6 +6,9 @@ branches:
   only:
     - master
 
+notifications:
+  slack: is-utn-2019:MwfmDe6oNSAZsxfIcO5IZFpA
+
 before_script:
   - npm install -g firebase-tools
   - npm install -g @angular/cli
